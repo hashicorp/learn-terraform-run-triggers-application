@@ -1,13 +1,13 @@
 variable tfc_org_name {
   description = "Name of the Terraform Cloud Organization"
   type        = string
-  default     = "RunTriggersExampleOrg"
+  default     = "run-triggers-example-org"
 }
 
 variable tfc_vpc_workspace_name {
   description = "Name of the Workspace"
   type        = string
-  default     = "LearnTerraformRunTriggersVPC"
+  default     = "learn-terraform-run-triggers-vpc"
 }
 
 variable instances_per_subnet {
