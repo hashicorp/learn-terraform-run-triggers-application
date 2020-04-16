@@ -28,7 +28,7 @@ data "aws_ami" "amazon_linux" {
 resource "aws_instance" "app" {
   count = var.instances_per_subnet * length(data.terraform_remote_state.vpc.outputs.private_subnet_ids)
 
-  ami           = aws_ami.amazon_linux.id
+  ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
 
   subnet_id = data.terraform_remote_state.vpc.outputs.private_subnet_ids[count.index % length(data.terraform_remote_state.vpc.outputs.private_subnet_ids)]
