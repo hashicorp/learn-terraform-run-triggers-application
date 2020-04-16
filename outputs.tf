@@ -1,5 +1,5 @@
 output web_instance_count {
-  value = len(aws_instance.app)
+  value = length(aws_instance.app)
 }
 
 output public_dns_name {
