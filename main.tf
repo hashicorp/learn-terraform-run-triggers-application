@@ -52,10 +52,6 @@ resource "aws_lb_target_group_attachment" "http" {
   target_group_arn = data.terraform_remote_state.vpc.outputs.lb_target_group_http_arn
   target_id        = aws_instance.app[count.index].id
   port             = 80
-
-  tags = {
-    Project = data.terraform_remote_state.vpc.outputs.project_tag
-  }
 }
 
 ## HTTPS support requires an SSL certificate, which is out of scope for this
@@ -67,8 +63,4 @@ resource "aws_lb_target_group_attachment" "http" {
 #   target_group_arn = data.terraform_remote_state.vpc.outputs.lb_target_group_https_arn
 #   target_id        = aws_instance.app[count.index].id
 #   port             = 443
-#
-#   tags = {
-#     Project = data.terraform_remote_state.vpc.outputs.project_tag
-#   }
 # }
