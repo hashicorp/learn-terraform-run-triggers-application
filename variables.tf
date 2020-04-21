@@ -1,7 +1,7 @@
 variable tfc_org_name {
   description = "Name of the Terraform Cloud Organization"
   type        = string
-  default     = "run-triggers-example-org"
+  default     = "learn-terraform-run-triggers-org"
 }
 
 variable tfc_vpc_workspace_name {
