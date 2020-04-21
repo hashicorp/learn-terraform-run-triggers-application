@@ -31,15 +31,17 @@ resource "aws_instance" "app" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
 
-  subnet_id = data.terraform_remote_state.vpc.outputs.private_subnet_ids[count.index % length(data.terraform_remote_state.vpc.outputs.private_subnet_ids)]
+  subnet_id              = data.terraform_remote_state.vpc.outputs.private_subnet_ids[count.index % length(data.terraform_remote_state.vpc.outputs.private_subnet_ids)]
+  vpc_security_group_ids = data.terraform_remote_state.vpc_outputs.app_instance_security_group_ids
 
-  user_data = <<EOF
+  user_data = <<-EOF
+    #!/bin/bash
     sudo yum update -y
     sudo yum install httpd -y
     sudo systemctl enable httpd
     sudo systemctl start httpd
     echo "<html><body><div>Hello, world!</div></body></html>" > /var/www/html/index.html
-EOF
+    EOF
 
   tags = {
     Project = data.terraform_remote_state.vpc.outputs.project_tag
