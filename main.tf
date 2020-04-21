@@ -32,7 +32,7 @@ resource "aws_instance" "app" {
   instance_type = var.instance_type
 
   subnet_id              = data.terraform_remote_state.vpc.outputs.private_subnet_ids[count.index % length(data.terraform_remote_state.vpc.outputs.private_subnet_ids)]
-  vpc_security_group_ids = data.terraform_remote_state.vpc_outputs.app_instance_security_group_ids
+  vpc_security_group_ids = data.terraform_remote_state.vpc.outputs.app_instance_security_group_ids
 
   user_data = <<-EOF
     #!/bin/bash
