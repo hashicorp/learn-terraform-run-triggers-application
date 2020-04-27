@@ -4,10 +4,10 @@ variable tfc_org_name {
   default     = "learn-terraform-run-triggers-org"
 }
 
-variable tfc_vpc_workspace_name {
-  description = "Name of the Workspace"
+variable tfc_network_workspace_name {
+  description = "Name of the network workspace"
   type        = string
-  default     = "learn-terraform-run-triggers-vpc"
+  default     = "learn-terraform-run-triggers-network"
 }
 
 variable instances_per_subnet {
