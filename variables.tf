@@ -1,7 +1,7 @@
 variable tfc_org_name {
   description = "Name of the Terraform Cloud Organization"
   type        = string
-  default     = "learn-terraform-run-triggers-org"
+  default     = "hashicorp-learn"
 }
 
 variable tfc_network_workspace_name {
