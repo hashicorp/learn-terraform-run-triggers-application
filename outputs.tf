@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 output "web_instance_count" {
   value = length(aws_instance.app)
 }
